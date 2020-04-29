@@ -1,6 +1,10 @@
 package com.example.sample.runners;
 
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
+
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -12,5 +16,9 @@ import io.cucumber.junit.CucumberOptions;
 		strict=true
 )
 public class SampleRunner {
-
+	@BeforeClass
+    public static void setUp(){
+        Configuration.browser = WebDriverRunner.FIREFOX;
+        System.setProperty("webdriver.chrome.driver", "driver/geckodriver.exe");
+    }
 }
