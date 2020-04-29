@@ -13,6 +13,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features="Features",
 		glue={"com.example.sample.steps"},
+		plugin= {"pretty","html:target/cucumber-html-report"},
+		monochrome = true,
 		strict=true
 )
 public class SampleRunner {

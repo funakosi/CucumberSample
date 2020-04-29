@@ -16,12 +16,12 @@ public class SampleSteps {
         Selenide.open("http://demo.guru99.com/v4");
     }
 
-	@When("^ユーザ名とパスワードを入力$")
-    public void enter_the_Username_and_Password() throws Throwable
+	@When("^ユーザ名 (.+) とパスワード (.+) を入力$")
+    public void enter_the_Username_and_Password(String username,String password) throws Throwable
     {
-    	System.out.println("Enter the Username and Password.");
-    	 Selenide.$(By.name("uid")).val("username12");
-         Selenide.$(By.name("password")).val("password12");
+    	System.out.println("Enter the Username and Password on the login page.");
+        Selenide.$(By.name("uid")).val(username);
+        Selenide.$(By.name("password")).val(password);
     }
 
     @Then("^資格情報をリセット$")
